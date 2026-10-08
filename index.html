@@ -62,6 +62,12 @@ p { margin: 0; }
 .nav ul { display: flex; gap: var(--space-4); list-style: none; margin: 0; padding: 0; overflow-x: auto; }
 .nav ul a { display: block; font-size: 15px; font-weight: 500; line-height: 52px; color: var(--ink); text-decoration: none; border-bottom: 3px solid transparent; white-space: nowrap; }
 .nav ul a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+.theme-toggle { margin-left: auto; flex: none; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--ink); cursor: pointer; }
+.theme-toggle:hover { background: var(--surface); color: var(--accent); }
+.theme-toggle svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.theme-toggle .moon { display: none; }
+:root[data-theme="dark"] .theme-toggle .sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .moon { display: block; }
 @media (max-width: 760px) { .nav ul { display: none; } }
 
 /* Sections */
@@ -180,6 +186,10 @@ window.SITE_LINKS = {
       <li><a href="#credentials">Credentials</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch theme">
+      <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+      <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5z"/></svg>
+    </button>
   </div>
 </nav>
 
@@ -389,6 +399,26 @@ window.SITE_LINKS = {
       }, fallback);
     });
   });
+
+  // Theme toggle: follows the system theme until the visitor picks one
+  (function () {
+    var root = document.documentElement, tbtn = document.getElementById("theme-toggle");
+    if (!tbtn) return;
+    var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+    var saved = null;
+    try { saved = localStorage.getItem("theme"); } catch (e) {}
+    function current() { return root.getAttribute("data-theme") || (mq && mq.matches ? "dark" : "light"); }
+    function apply(t) {
+      root.setAttribute("data-theme", t);
+      tbtn.setAttribute("aria-label", t === "dark" ? "Switch to light theme" : "Switch to dark theme");
+    }
+    apply(saved === "dark" || saved === "light" ? saved : current());
+    tbtn.addEventListener("click", function () {
+      var t = current() === "dark" ? "light" : "dark";
+      apply(t);
+      try { localStorage.setItem("theme", t); } catch (e) {}
+    });
+  })();
 
   var btn = document.getElementById("copy-email");
   var email = document.getElementById("email");
