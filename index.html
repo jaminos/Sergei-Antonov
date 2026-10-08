@@ -65,8 +65,7 @@ p { margin: 0; }
 @media (max-width: 760px) { .nav ul { display: none; } }
 
 /* Sections */
-section { padding-block: var(--space-12); border-top: 1px solid var(--line); }
-.hero { border-top: 0; }
+section { padding-block: var(--space-12); }
 .section-head { margin-bottom: var(--space-6); }
 h2 { font-size: 32px; line-height: 40px; font-weight: 700; }
 h3 { font-size: 20px; line-height: 26px; font-weight: 600; }
@@ -86,23 +85,10 @@ h3 { font-size: 20px; line-height: 26px; font-weight: 600; }
 .hero-sub { margin-top: var(--space-4); font-size: 18px; line-height: 26px; color: var(--ink-muted); max-width: 56ch; }
 .actions { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-6); }
 
-.metrics { margin-top: var(--space-8); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); background: var(--surface); border-radius: var(--radius-md); }
-.metric { padding: var(--space-4) var(--space-6); display: grid; gap: var(--space-1); align-content: start; min-width: 0; }
-.metric + .metric { border-left: 1px solid var(--line); }
-.metric b { font-size: 36px; line-height: 42px; font-weight: 700; letter-spacing: -0.01em; white-space: nowrap; font-variant-numeric: tabular-nums; }
-.metric b small { font-size: 13px; font-weight: 500; letter-spacing: 0; color: var(--ink-muted); margin-right: 6px; vertical-align: 6px; }
-.metric span { font-size: 13px; line-height: 18px; color: var(--ink-muted); }
-@media (max-width: 860px) {
-  .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .metric:nth-child(3) { border-left: 0; }
-  .metric:nth-child(n+3) { border-top: 1px solid var(--line); }
-}
-@media (max-width: 420px) { .metric { padding: var(--space-3) var(--space-4); } .metric b { font-size: 28px; line-height: 34px; } }
-
 /* About */
 .about-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: var(--space-6); }
 .about-text { display: grid; gap: var(--space-4); font-size: 18px; line-height: 28px; max-width: 66ch; }
-.domains { display: flex; flex-wrap: wrap; gap: var(--space-2); padding: 0; margin: 0; list-style: none; }
+.domains { display: flex; flex-wrap: wrap; gap: var(--space-2); padding: 0; margin: var(--space-2) 0 0; list-style: none; }
 .domains li { font-size: 14px; line-height: 20px; padding: var(--space-1) var(--space-3); border-radius: var(--radius-sm); border: 1px solid var(--line); }
 @media (max-width: 760px) { .about-grid { grid-template-columns: minmax(0, 1fr); gap: 0; } }
 
@@ -128,13 +114,14 @@ h3 { font-size: 20px; line-height: 26px; font-weight: 600; }
 .job-head .role { font-size: 13px; line-height: 20px; font-weight: 600; padding: 0 6px; border-radius: var(--radius-xs); background: var(--accent-soft); color: var(--accent); }
 .job p { font-size: 16px; line-height: 24px; color: var(--ink-muted); max-width: 76ch; }
 .job p strong { color: var(--ink); font-weight: 600; }
-.earlier { margin-top: var(--space-4); font-size: 13px; line-height: 18px; color: var(--ink-muted); }
 @media (max-width: 640px) { .job { grid-template-columns: minmax(0, 1fr); } }
 
 /* Teaching */
 .list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0 var(--space-6); }
 .list li { display: flex; flex-direction: column; gap: var(--space-1); padding-block: var(--space-4); border-top: 2px solid var(--ink); min-width: 0; }
 .list p { font-size: 15px; line-height: 22px; color: var(--ink-muted); }
+.text-link { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; white-space: nowrap; }
+.text-link:hover { text-decoration-thickness: 2px; }
 .list-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 @media (max-width: 760px) { .list-3 { grid-template-columns: minmax(0, 1fr); } .list li + li { border-top-width: 1px; border-top-color: var(--line); } }
 
@@ -156,7 +143,7 @@ h3 { font-size: 20px; line-height: 26px; font-weight: 600; }
 .copy-btn:hover { border-color: var(--ink); }
 .contact-links { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
 
-footer { padding-block: var(--space-6); border-top: 1px solid var(--line); font-size: 13px; line-height: 18px; color: var(--ink-muted); }
+footer { padding-block: var(--space-6); font-size: 13px; line-height: 18px; color: var(--ink-muted); }
 footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2) var(--space-4); }
 </style>
 
@@ -199,19 +186,9 @@ window.SITE_LINKS = {
 <main id="top">
   <section class="hero">
     <div class="wrap">
-      <h1>Complex projects, delivered — <em>through people, clarity and control.</em></h1>
+      <h1>Complex projects, delivered — <em>through people, clarity and governance practices.</em></h1>
       <p class="hero-sub">Leading engineering teams, programmes and portfolios in product and custom software development companies.</p>
-      <div class="actions">
-        <a class="btn btn-primary" href="#contact">Contact me</a>
-        <a class="btn" data-link="cv" href="#" target="_blank" rel="noopener" hidden>Download CV</a>
-      </div>
 
-      <div class="metrics" role="list">
-        <div class="metric" role="listitem"><b>18</b><span>years in IT delivery</span></div>
-        <div class="metric" role="listitem"><b>200</b><span>people in a delivery unit I led</span></div>
-        <div class="metric" role="listitem"><b><small>up to</small>$10M</b><span>contract portfolio</span></div>
-        <div class="metric" role="listitem"><b>23→40%</b><span>operating margin increase</span></div>
-      </div>
     </div>
   </section>
 
@@ -221,10 +198,16 @@ window.SITE_LINKS = {
         <h2>About</h2>
       </div>
       <div class="about-text">
-        <p>I turn large, high-stakes IT programmes into predictable results. I agree the right outcome with the client up front, keep scope, budget and risk under control, and build teams that deliver.</p>
-        <p>I've worked in waterfall, Agile, SAFe and hybrid setups, and I bring hands-on AI expertise to make teams faster and decisions sharper.</p>
+        <p>For 18 years I've helped teams turn big, high-stakes IT projects and programmes into something predictable. I've led delivery units of up to 200 people and portfolios of up to $10M, and have been maintaining target margin across them.</p>
+        <p>Here's what makes it work. Ideas are tested as hypotheses first, and only what holds up moves into delivery. From there I agree on the outcome upfront and manage the vision of the result, keeping it clear to everyone throughout the project. I keep scope, budget and risk in check and build a team that can deliver it.</p>
+        <p>I manage delivery across different contexts and methodologies: waterfall, Agile, SAFe or a mix. I've also been responsible for the technical block, engineering excellence (SDLC, CI/CD, code quality, testing, security, infrastructure reliability), so speed never comes at the cost of quality. Today I add hands-on AI expertise, so teams move faster and decisions get sharper.</p>
         <ul class="domains" aria-label="Industries">
-          <li>Pharma</li><li>Logistics</li><li>Energy</li><li>Retail</li><li>Data centres</li><li>Mining &amp; metals</li>
+          <li>Pharma</li>
+          <li>Logistics</li>
+          <li>Energy</li>
+          <li>Retail</li>
+          <li>Data centres</li>
+          <li>Mining &amp; metals</li>
         </ul>
       </div>
     </div>
@@ -239,7 +222,7 @@ window.SITE_LINKS = {
       <div class="cards">
         <article class="card">
           <h3>Leading people</h3>
-          <p>I build teams and grow leaders from within. I grew one account team from 40 to 80 people.</p>
+          <p>I build teams and invest myself in helping people grow, so new leaders emerge from within. I grew one account team from 40 to 80 people.</p>
         </article>
         <article class="card">
           <h3>Planning &amp; delivery economics</h3>
@@ -308,7 +291,7 @@ window.SITE_LINKS = {
           <div class="years">2017 — 2018</div>
           <div>
             <div class="job-head"><h3>Teamlead</h3><span class="role">Head of Consulting (Partner)</span></div>
-            <p>Built and led a 15-person Atlassian consulting practice from scratch. <strong>Won and delivered contracts with Deloitte CIS and United Card Services, opened X5 Retail Group as a new client, and grew licence sales to take the company to Atlassian Gold Partner status.</strong></p>
+            <p>Built and led a 15-person Atlassian consulting practice from scratch. Won and delivered contracts with Deloitte CIS and United Card Services, opened X5 Retail Group as a new client, and grew licence sales to take the company to Atlassian Gold Partner status.</p>
           </div>
         </li>
         <li class="job">
@@ -318,8 +301,14 @@ window.SITE_LINKS = {
             <p>Delivered projects for Merck and Biogen. An ML drug-discovery platform I worked on <strong>won a Silver Edison Award (2017).</strong></p>
           </div>
         </li>
+        <li class="job">
+          <div class="years">2013 — 2015</div>
+          <div>
+            <div class="job-head"><h3>Earlier roles</h3></div>
+            <p>Retail POS and enterprise BPM projects at Crystal Service Integration and Ittilan. Hands-on experience as a full-stack engineer.</p>
+          </div>
+        </li>
       </ol>
-      <p class="earlier">Earlier: retail POS and enterprise BPM projects at Crystal Service Integration and Ittilan (2013–2015).</p>
     </div>
   </section>
 
@@ -332,7 +321,7 @@ window.SITE_LINKS = {
       <ul class="list list-3">
         <li><h3>Guest lecturer, ETU "LETI"</h3><p>Project management for engineering students.</p></li>
         <li><h3>Tracker, student startup accelerator</h3><p>Mentoring early-stage founders on planning, focus and execution.</p></li>
-        <li><h3>Course author</h3><p>Practical courses on modern AI tools for non-technical professionals.</p></li>
+        <li><h3>Course author</h3><p>Practical courses on modern AI tools for non-technical professionals. <a class="text-link" data-pdf href="AI_Course_Sergei_Antonov.pdf" target="_blank" rel="noopener">See the course programme (PDF)</a></p></li>
       </ul>
     </div>
   </section>
@@ -385,20 +374,21 @@ window.SITE_LINKS = {
     if (url) { el.href = url; el.hidden = false; }
   });
 
-  var cvBtn = document.getElementById("cv-download");
-  if (cvBtn) {
-    cvBtn.addEventListener("click", function (e) {
+  // PDFs next to the page: CV and course programme. Inside the Claude viewer, offer them via the downloads capability; on a normal server, the plain link works.
+  document.querySelectorAll("#cv-download, [data-pdf]").forEach(function (link) {
+    link.addEventListener("click", function (e) {
       if (!(window.claude && window.claude.use)) return;
       e.preventDefault();
-      var fallback = function () { window.open(cvBtn.getAttribute("href"), "_blank", "noopener"); };
+      var file = link.getAttribute("href");
+      var fallback = function () { window.open(file, "_blank", "noopener"); };
       window.claude.use("downloads").then(function (dl) {
         if (!dl) return fallback();
-        return fetch("CV_Antonov_Sergei.pdf").then(function (r) { return r.blob(); }).then(function (b) {
-          return dl.save({ filename: "CV_Antonov_Sergei.pdf", data: b });
+        return fetch(file).then(function (r) { return r.blob(); }).then(function (b) {
+          return dl.save({ filename: file, data: b });
         }).catch(function (err) { if (!err || err.code !== "declined") fallback(); });
       }, fallback);
     });
-  }
+  });
 
   var btn = document.getElementById("copy-email");
   var email = document.getElementById("email");
