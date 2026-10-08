@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Sergei Antonov</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,7 +62,11 @@ p { margin: 0; }
 .nav ul { display: flex; gap: var(--space-4); list-style: none; margin: 0; padding: 0; overflow-x: auto; }
 .nav ul a { display: block; font-size: 15px; font-weight: 500; line-height: 52px; color: var(--ink); text-decoration: none; border-bottom: 3px solid transparent; white-space: nowrap; }
 .nav ul a:hover { color: var(--accent); border-bottom-color: var(--accent); }
-.theme-toggle { margin-left: auto; flex: none; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--ink); cursor: pointer; }
+.lang { margin-left: auto; flex: none; display: inline-flex; align-items: center; gap: 2px; }
+.lang button { font: inherit; font-size: 13px; font-weight: 600; letter-spacing: .04em; padding: 4px 8px; border: 0; border-radius: var(--radius-sm); background: transparent; color: var(--ink-muted); cursor: pointer; }
+.lang button:hover { color: var(--ink); }
+.lang button[aria-pressed="true"] { color: var(--accent); background: var(--accent-soft); }
+.theme-toggle { margin-left: 0; flex: none; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--ink); cursor: pointer; }
 .theme-toggle:hover { background: var(--surface); color: var(--accent); }
 .theme-toggle svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 .theme-toggle .moon { display: none; }
@@ -167,11 +171,11 @@ window.SITE_LINKS = {
 
 <div class="topline">
   <div class="wrap">
-    <span class="status">Saint Petersburg · Open to Delivery Director roles</span>
+    <span data-i18n="k0" class="status">Saint Petersburg · Open to Delivery Director roles</span>
     <div class="topline-end">
       <a href="https://www.linkedin.com/in/sergei-antonov-fbls" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://t.me/santonov1" target="_blank" rel="noopener">Telegram</a>
-      <a href="#contact">Contact</a>
+      <a data-i18n="k1" href="#contact">Contact</a>
     </div>
   </div>
 </div>
@@ -180,12 +184,16 @@ window.SITE_LINKS = {
   <div class="wrap">
     <a class="brand" href="#top">Sergei Antonov</a>
     <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#what">What I do</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#credentials">Credentials</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a data-i18n="k2" href="#about">About</a></li>
+      <li><a data-i18n="k3" href="#what">What I do</a></li>
+      <li><a data-i18n="k4" href="#experience">Experience</a></li>
+      <li><a data-i18n="k5" href="#credentials">Credentials</a></li>
+      <li><a data-i18n="k1" href="#contact">Contact</a></li>
     </ul>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+    </div>
     <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch theme">
       <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
       <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5z"/></svg>
@@ -196,8 +204,8 @@ window.SITE_LINKS = {
 <main id="top">
   <section class="hero">
     <div class="wrap">
-      <h1>Complex projects, delivered — <em>through people, clarity and governance practices.</em></h1>
-      <p class="hero-sub">Leading engineering teams, programmes and portfolios in product and custom software development companies.</p>
+      <h1 data-i18n="k6">Complex projects, delivered — <em>through people, clarity and governance practices.</em></h1>
+      <p data-i18n="k7" class="hero-sub">Leading engineering teams, programmes and portfolios in product and custom software development companies.</p>
 
     </div>
   </section>
@@ -205,19 +213,19 @@ window.SITE_LINKS = {
   <section id="about">
     <div class="wrap about-grid">
       <div class="section-head">
-        <h2>About</h2>
+        <h2 data-i18n="k2">About</h2>
       </div>
       <div class="about-text">
-        <p>For 18 years I've helped teams turn big, high-stakes IT projects and programmes into something predictable. I've led delivery units of up to 200 people and portfolios of up to $10M, and have been maintaining target margin across them.</p>
-        <p>Here's what makes it work. Ideas are tested as hypotheses first, and only what holds up moves into delivery. From there I agree on the outcome upfront and manage the vision of the result, keeping it clear to everyone throughout the project. I keep scope, budget and risk in check and build a team that can deliver it.</p>
-        <p>I manage delivery across different contexts and methodologies: waterfall, Agile, SAFe or a mix. I've also been responsible for the technical block, engineering excellence (SDLC, CI/CD, code quality, testing, security, infrastructure reliability), so speed never comes at the cost of quality. Today I add hands-on AI expertise, so teams move faster and decisions get sharper.</p>
+        <p data-i18n="k8">For 18 years I've helped teams turn big, high-stakes IT projects and programmes into something predictable. I've led delivery units of up to 200 people and portfolios of up to $10M, and have been maintaining target margin across them.</p>
+        <p data-i18n="k9">Here's what makes it work. Ideas are tested as hypotheses first, and only what holds up moves into delivery. From there I agree on the outcome upfront and manage the vision of the result, keeping it clear to everyone throughout the project. I keep scope, budget and risk in check and build a team that can deliver it.</p>
+        <p data-i18n="k10">I manage delivery across different contexts and methodologies: waterfall, Agile, SAFe or a mix. I've also been responsible for the technical block, engineering excellence (SDLC, CI/CD, code quality, testing, security, infrastructure reliability), so speed never comes at the cost of quality. Today I add hands-on AI expertise, so teams move faster and decisions get sharper.</p>
         <ul class="domains" aria-label="Industries">
-          <li>Pharma</li>
-          <li>Logistics</li>
-          <li>Energy</li>
-          <li>Retail</li>
-          <li>Data centres</li>
-          <li>Mining &amp; metals</li>
+          <li data-i18n="k11">Pharma</li>
+          <li data-i18n="k12">Logistics</li>
+          <li data-i18n="k13">Energy</li>
+          <li data-i18n="k14">Retail</li>
+          <li data-i18n="k15">Data centres</li>
+          <li data-i18n="k16">Mining &amp; metals</li>
         </ul>
       </div>
     </div>
@@ -226,37 +234,37 @@ window.SITE_LINKS = {
   <section id="what">
     <div class="wrap">
       <div class="section-head">
-        <h2>What I do</h2>
-        <p class="section-lead">The areas I own on every engagement, from people and budgets to engineering.</p>
+        <h2 data-i18n="k3">What I do</h2>
+        <p data-i18n="k17" class="section-lead">The areas I own on every engagement, from people and budgets to engineering.</p>
       </div>
       <div class="cards">
         <article class="card">
-          <h3>Leading people</h3>
-          <p>I build teams and invest myself in helping people grow, so new leaders emerge from within. I grew one account team from 40 to 80 people.</p>
+          <h3 data-i18n="k18">Leading people</h3>
+          <p data-i18n="k19">I build teams and invest myself in helping people grow, so new leaders emerge from within. I grew one account team from 40 to 80 people.</p>
         </article>
         <article class="card">
-          <h3>Planning &amp; delivery economics</h3>
-          <p>I own P&amp;L, utilisation, margin and cash flow. I set up cost and time tracking so the cost and timeline of every project are visible at any moment.</p>
+          <h3 data-i18n="k20">Planning &amp; delivery economics</h3>
+          <p data-i18n="k21">I own P&amp;L, utilisation, margin and cash flow. I set up cost and time tracking so the cost and timeline of every project are visible at any moment.</p>
         </article>
         <article class="card">
-          <h3>Scope, risk &amp; recovery</h3>
-          <p>Change control stops scope creep and protects budgets. I find bottlenecks through metrics and project health radars before they become crises.</p>
+          <h3 data-i18n="k22">Scope, risk &amp; recovery</h3>
+          <p data-i18n="k23">Change control stops scope creep and protects budgets. I find bottlenecks through metrics and project health radars before they become crises.</p>
         </article>
         <article class="card">
-          <h3>Stakeholders &amp; negotiations</h3>
-          <p>I work directly with CEOs, founders and client executives. I negotiate contract terms that keep projects healthy: advances, milestones and acceptance criteria.</p>
+          <h3 data-i18n="k24">Stakeholders &amp; negotiations</h3>
+          <p data-i18n="k25">I work directly with CEOs, founders and client executives. I negotiate contract terms that keep projects healthy: advances, milestones and acceptance criteria.</p>
         </article>
         <article class="card">
-          <h3>PMO &amp; delivery processes</h3>
-          <p>I've built Delivery Management Offices and delivery frameworks that scale, and I keep them pragmatic rather than dogmatic.</p>
+          <h3 data-i18n="k26">PMO &amp; delivery processes</h3>
+          <p data-i18n="k27">I've built Delivery Management Offices and delivery frameworks that scale, and I keep them pragmatic rather than dogmatic.</p>
         </article>
         <article class="card">
-          <h3>Engineering excellence</h3>
-          <p>I set up the engineering system behind delivery: SDLC, CI/CD, code quality standards, test automation and DevSecOps practices. Monitoring, resilient infrastructure and metrics like lead time and throughput keep releases frequent and systems reliable. I also run technical due diligence.</p>
+          <h3 data-i18n="k28">Engineering excellence</h3>
+          <p data-i18n="k29">I set up the engineering system behind delivery: SDLC, CI/CD, code quality standards, test automation and DevSecOps practices. Monitoring, resilient infrastructure and metrics like lead time and throughput keep releases frequent and systems reliable. I also run technical due diligence.</p>
         </article>
         <article class="card">
-          <h3>AI-enabled delivery</h3>
-          <p>I embed AI tools and agents into the development lifecycle, and I launched an AI initiative hub to test ideas quickly.</p>
+          <h3 data-i18n="k30">AI-enabled delivery</h3>
+          <p data-i18n="k31">I embed AI tools and agents into the development lifecycle, and I launched an AI initiative hub to test ideas quickly.</p>
         </article>
       </div>
     </div>
@@ -265,57 +273,57 @@ window.SITE_LINKS = {
   <section id="experience">
     <div class="wrap">
       <div class="section-head">
-        <h2>Experience</h2>
-        <p class="section-lead">Selected roles and the results behind them.</p>
+        <h2 data-i18n="k4">Experience</h2>
+        <p data-i18n="k32" class="section-lead">Selected roles and the results behind them.</p>
       </div>
       <ol class="timeline">
         <li class="job">
-          <div class="years">2025 — now</div>
+          <div data-i18n="k33" class="years">2025 — now</div>
           <div>
-            <div class="job-head"><h3>KORUS Consulting</h3><span class="role">Project Portfolio Manager</span></div>
-            <p>Data platform portfolio for Russia's leading railway carrier: up to 150 people, contracts up to $10M. <strong>Delivered within budget at 20%+ margin</strong> and introduced portfolio-wide change control.</p>
+            <div class="job-head"><h3>KORUS Consulting</h3><span data-i18n="k34" class="role">Project Portfolio Manager</span></div>
+            <p data-i18n="k35">Data platform portfolio for Russia's leading railway carrier: up to 150 people, contracts up to $10M. <strong>Delivered within budget at 20%+ margin</strong> and introduced portfolio-wide change control.</p>
           </div>
         </li>
         <li class="job">
           <div class="years">2024 — 2025</div>
           <div>
             <div class="job-head"><h3>ITentika</h3><span class="role">Delivery Director</span></div>
-            <p>Led a 200-person delivery unit across logistics, energy and retail as a member of the executive committee. <strong>Hit targets of 90% utilisation and 35% project margin.</strong></p>
+            <p data-i18n="k36">Led a 200-person delivery unit across logistics, energy and retail as a member of the executive committee. <strong>Hit targets of 90% utilisation and 35% project margin.</strong></p>
           </div>
         </li>
         <li class="job">
           <div class="years">2021 — 2023</div>
           <div>
-            <div class="job-head"><h3>Emergn</h3><span class="role">Head of Delivery Management Office</span></div>
-            <p>Led a 150-person Delivery Office. <strong>Raised margin from 23% to 40%</strong> through a new operating model built with the CFO and Sales Director. Managed the phased transition of teams to Portugal and LATAM in 2022.</p>
+            <div class="job-head"><h3>Emergn</h3><span data-i18n="k37" class="role">Head of Delivery Management Office</span></div>
+            <p data-i18n="k38">Led a 150-person Delivery Office. <strong>Raised margin from 23% to 40%</strong> through a new operating model built with the CFO and Sales Director. In 2022, led a challenging phased replacement of team members with specialists from Portugal and LATAM.</p>
           </div>
         </li>
         <li class="job">
           <div class="years">2019 — 2021</div>
           <div>
             <div class="job-head"><h3>EPAM Systems</h3><span class="role">Principal Delivery Manager</span></div>
-            <p>Ran a 70-person account segment for Merck (US pharma). Delivered target margin consistently, and <strong>high client satisfaction led to expansion</strong> into adjacent Merck units.</p>
+            <p data-i18n="k39">Ran a 70-person account segment for Merck (US pharma). Delivered target margin consistently, and <strong>high client satisfaction led to expansion</strong> into adjacent Merck units.</p>
           </div>
         </li>
         <li class="job">
           <div class="years">2017 — 2018</div>
           <div>
-            <div class="job-head"><h3>Teamlead</h3><span class="role">Head of Consulting (Partner)</span></div>
-            <p>Built and led a 15-person Atlassian consulting practice from scratch. Won and delivered contracts with Deloitte CIS and United Card Services, opened X5 Retail Group as a new client, and grew licence sales to take the company to Atlassian Gold Partner status.</p>
+            <div class="job-head"><h3>Teamlead</h3><span data-i18n="k40" class="role">Head of Consulting (Partner)</span></div>
+            <p data-i18n="k41">Built and led a 15-person Atlassian consulting practice from scratch. Won and delivered contracts with Deloitte CIS and United Card Services, opened X5 Retail Group as a new client, and grew licence sales to take the company to Atlassian Gold Partner status.</p>
           </div>
         </li>
         <li class="job">
           <div class="years">2015 — 2017</div>
           <div>
-            <div class="job-head"><h3>EPAM Systems</h3><span class="role">Software Project Manager</span></div>
-            <p>Delivered projects for Merck and Biogen. An ML drug-discovery platform I worked on <strong>won a Silver Edison Award (2017).</strong></p>
+            <div class="job-head"><h3>EPAM Systems</h3><span data-i18n="k42" class="role">Software Project Manager</span></div>
+            <p data-i18n="k43">Delivered projects for Merck and Biogen. An ML drug-discovery platform I worked on <strong>won a Silver Edison Award (2017).</strong></p>
           </div>
         </li>
         <li class="job">
           <div class="years">2013 — 2015</div>
           <div>
-            <div class="job-head"><h3>Earlier roles</h3></div>
-            <p>Retail POS and enterprise BPM projects at Crystal Service Integration and Ittilan. Hands-on experience as a full-stack engineer.</p>
+            <div class="job-head"><h3 data-i18n="k44">Earlier roles</h3></div>
+            <p data-i18n="k45">Retail POS and enterprise BPM projects at Crystal Service Integration and Ittilan. Hands-on experience as a full-stack engineer.</p>
           </div>
         </li>
       </ol>
@@ -325,13 +333,13 @@ window.SITE_LINKS = {
   <section id="teaching">
     <div class="wrap">
       <div class="section-head">
-        <h2>Teaching &amp; mentoring</h2>
-        <p class="section-lead">Sharing what I've learned with students and early-stage founders.</p>
+        <h2 data-i18n="k46">Teaching &amp; mentoring</h2>
+        <p data-i18n="k47" class="section-lead">Sharing what I've learned with students and early-stage founders.</p>
       </div>
       <ul class="list list-3">
-        <li><h3>Guest lecturer, ETU "LETI"</h3><p>Project management for engineering students.</p></li>
-        <li><h3>Tracker, student startup accelerator</h3><p>Mentoring early-stage founders on planning, focus and execution.</p></li>
-        <li><h3>Course author</h3><p>Practical courses on modern AI tools for non-technical professionals. <a class="text-link" data-pdf href="AI_Course_Sergei_Antonov.pdf" target="_blank" rel="noopener">See the course programme (PDF)</a></p></li>
+        <li><h3 data-i18n="k48">Guest lecturer, ETU "LETI"</h3><p data-i18n="k49">Project management for engineering students.</p></li>
+        <li><h3 data-i18n="k50">Tracker, student startup accelerator</h3><p data-i18n="k51">Mentoring early-stage founders on planning, focus and execution.</p></li>
+        <li><h3 data-i18n="k52">Course author</h3><p data-i18n="k53">Practical courses on modern AI tools for non-technical professionals. <a class="text-link" data-pdf href="AI_Course_Sergei_Antonov.pdf" target="_blank" rel="noopener">See the course programme (PDF)</a></p></li>
       </ul>
     </div>
   </section>
@@ -339,23 +347,23 @@ window.SITE_LINKS = {
   <section id="credentials">
     <div class="wrap">
       <div class="section-head">
-        <h2>Credentials</h2>
-        <p class="section-lead">Certifications, education and languages.</p>
+        <h2 data-i18n="k5">Credentials</h2>
+        <p data-i18n="k54" class="section-lead">Certifications, education and languages.</p>
       </div>
       <ul class="creds">
         <li><b>PMP®</b><span>Project Management Professional, PMI</span></li>
         <li><b>Leading SAFe® &amp; SAFe Practitioner</b><span>Scaled Agile Framework</span></li>
         <li><b>Generative AI with Large Language Models</b><span>DeepLearning.AI &amp; AWS, 2026</span></li>
-        <li><b>English C1 · Russian native</b><span>Languages</span></li>
-        <li class="edu"><b>Peter the Great St. Petersburg Polytechnic University</b><span>M.Eng., Innovation Project Management, 2007 · Engineer's degree, Computer Science &amp; Automated Systems Software, 2013</span></li>
+        <li><b data-i18n="k55">English C1 · Russian native</b><span data-i18n="k56">Languages</span></li>
+        <li class="edu"><b data-i18n="k57">Peter the Great St. Petersburg Polytechnic University</b><span data-i18n="k58">M.Eng., Innovation Project Management, 2007 · Engineer's degree, Computer Science &amp; Automated Systems Software, 2013</span></li>
       </ul>
     </div>
   </section>
 
   <section id="contact" class="contact">
     <div class="wrap"><div class="panel">
-      <h2>Let's talk.</h2>
-      <p class="lead">Open to Delivery Director / Head of Delivery roles and advisory projects, remote or with relocation.</p>
+      <h2 data-i18n="k59">Let's talk.</h2>
+      <p data-i18n="k60" class="lead">Open to Delivery Director / Head of Delivery roles and advisory projects, remote or with relocation.</p>
       <div class="email-row">
         <span class="email" id="email">antonoff.box@gmail.com</span>
         <button class="copy-btn" id="copy-email" type="button">Copy email</button>
@@ -363,7 +371,7 @@ window.SITE_LINKS = {
       <div class="contact-links">
         <a class="btn" data-link="linkedin" href="#" target="_blank" rel="noopener" hidden>LinkedIn</a>
         <a class="btn" data-link="telegram" href="#" target="_blank" rel="noopener" hidden>Telegram</a>
-        <a class="btn" data-link="cv" href="#" target="_blank" rel="noopener" hidden>Download CV</a>
+        <a data-i18n="k61" class="btn" data-link="cv" href="#" target="_blank" rel="noopener" hidden>Download CV</a>
       </div>
     </div></div>
   </section>
@@ -371,8 +379,8 @@ window.SITE_LINKS = {
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Sergei Antonov · Saint Petersburg</span>
-    <a class="btn btn-sm" id="cv-download" href="CV_Antonov_Sergei.pdf" download="CV_Antonov_Sergei.pdf" target="_blank" rel="noopener">Download CV</a>
+    <span data-i18n="k62">© 2026 Sergei Antonov · Saint Petersburg</span>
+    <a data-i18n="k61" class="btn btn-sm" id="cv-download" href="CV_Antonov_Sergei.pdf" download="CV_Antonov_Sergei.pdf" target="_blank" rel="noopener">Download CV</a>
   </div>
 </footer>
 
@@ -384,20 +392,42 @@ window.SITE_LINKS = {
     if (url) { el.href = url; el.hidden = false; }
   });
 
+  // Language switcher (EN default, RU translation); the original English text stays in the markup
+  var RU = {"k0": "Санкт-Петербург · Рассматриваю позиции Delivery Director", "k1": "Контакты", "k2": "Обо мне", "k3": "Чем я занимаюсь", "k4": "Опыт", "k5": "Квалификация", "k6": "Довожу сложные проекты до результата — <em>через выстраивание эффективной команды, прозрачность и чёткие правила управления.</em>", "k7": "Руковожу инженерными командами, программами и портфелями проектов в продуктовых компаниях и компаниях заказной разработки.", "k8": "Уже 18 лет я помогаю командам делать крупные, критически важные для бизнеса ИТ-проекты и программы управляемыми и предсказуемыми. Руководил подразделениями до 200 человек и портфелями проектов до $10 млн и всё это время обеспечивал целевую маржинальность.", "k9": "Как это работает. Сначала идеи проверяются как гипотезы, и в работу берётся только то, что подтвердилось. Дальше я заранее согласовываю ожидаемый результат, управляю его образом и слежу, чтобы он оставался понятным всем участникам до конца проекта. Держу под контролем объём работ, бюджет и риски и собираю команду, способную всё это реализовать.", "k10": "Умею управлять проектами в разных условиях и по разным методологиям: waterfall, Agile, SAFe или их сочетание. Отвечал и за технический блок — инженерные практики: SDLC, CI/CD, качество кода, тестирование, информационную безопасность и надёжность инфраструктуры, — чтобы скорость не шла в ущерб качеству. Сегодня добавляю к этому практический опыт работы с ИИ: команды двигаются быстрее, а решения принимаются точнее.", "k11": "Фармацевтика", "k12": "Логистика", "k13": "Энергетика", "k14": "Ритейл", "k15": "Дата-центры", "k16": "Горнодобыча и металлургия", "k17": "Зоны моей ответственности в каждом проекте — от людей и бюджета до инженерной части.", "k18": "Управление людьми", "k19": "Собираю команды и вкладываю силы и время в развитие людей, чтобы новые лидеры вырастали внутри коллектива. Команду одного из клиентов расширил с 40 до 80 человек.", "k20": "Планирование и экономика проектов", "k21": "Отвечаю за P&amp;L, загрузку команды, маржинальность и денежный поток. Выстраиваю учёт затрат и времени, чтобы в любой момент было видно, сколько стоит каждый проект и укладывается ли он в сроки.", "k22": "Объём работ, риски и антикризисное управление", "k23": "Управление изменениями не даёт объёму работ бесконтрольно расти и защищает бюджет. Узкие места выявляю по метрикам и регулярной оценке состояния проектов — до того, как они перерастут в кризис.", "k24": "Работа со стейкхолдерами и переговоры", "k25": "Работаю напрямую с CEO, основателями и топ-менеджментом клиентов. Согласовываю условия контрактов, которые защищают проект: авансы, этапы и критерии приёмки.", "k26": "PMO и процессы управления проектами", "k27": "Создавал проектные офисы и масштабируемые процессы управления и следил, чтобы они помогали работе, а не превращались в бюрократию.", "k28": "Инженерные практики", "k29": "Выстраиваю инженерную систему, на которой держится реализация проектов: SDLC, CI/CD, стандарты качества кода, автоматизированное тестирование и практики DevSecOps. Мониторинг, отказоустойчивая инфраструктура и метрики вроде lead time и throughput позволяют выпускать релизы часто, а системам — работать стабильно. Также провожу технический аудит (due diligence).", "k30": "Проекты с применением ИИ", "k31": "Встраиваю ИИ-инструменты и агентов в процесс разработки. Запустил хаб ИИ-инициатив, чтобы быстро проверять идеи.", "k32": "Ключевые позиции и результаты.", "k33": "2025 — сейчас", "k34": "Руководитель портфеля проектов", "k35": "Портфель проектов по платформе данных для крупнейшего железнодорожного перевозчика России: до 150 человек, контракты до $10 млн. <strong>Реализовал в рамках бюджета с маржинальностью выше 20%</strong> и внедрил управление изменениями на уровне всего портфеля.", "k36": "Руководил подразделением из 200 человек (логистика, энергетика, ритейл), входил в исполнительный комитет. <strong>Вышел на целевые показатели: загрузка 90%, маржинальность проектов 35%.</strong>", "k37": "Руководитель офиса управления проектами", "k38": "Руководил офисом управления проектами на 150 человек. <strong>Повысил маржинальность с 23% до 40%</strong> благодаря новой операционной модели, разработанной вместе с финансовым и коммерческим директорами. В 2022 году провёл непростую поэтапную замену состава команд на специалистов из Португалии и Латинской Америки.", "k39": "Руководил направлением из 70 человек в рамках аккаунта Merck (фармацевтика, США). Стабильно обеспечивал целевую маржинальность, а <strong>высокая оценка со стороны клиента привела к расширению</strong> работы на другие подразделения Merck.", "k40": "Руководитель консалтинга (партнёр)", "k41": "С нуля построил и возглавил практику консалтинга по Atlassian из 15 человек. Выиграл и реализовал контракты с Deloitte CIS и United Card Services, привлёк X5 Retail Group в качестве нового клиента и нарастил продажи лицензий — это вывело компанию на статус Atlassian Gold Partner.", "k42": "Руководитель проектов разработки ПО", "k43": "Вёл проекты для Merck и Biogen. ML-платформа для поиска новых лекарств, в разработке которой я участвовал, <strong>получила Silver Edison Award (2017).</strong>", "k44": "Начало карьеры", "k45": "Проекты по кассовым системам для розницы и корпоративному BPM в Crystal Service Integration и Ittilan. Практический опыт full-stack разработки.", "k46": "Преподавание и наставничество", "k47": "Делюсь опытом со студентами и начинающими предпринимателями.", "k48": "Приглашённый лектор, СПбГЭТУ «ЛЭТИ»", "k49": "Курс по управлению проектами для студентов технических специальностей.", "k50": "Трекер студенческого акселератора стартапов", "k51": "Помогаю командам начинающих стартапов с планированием, расстановкой приоритетов и исполнением.", "k52": "Автор курсов", "k53": "Практические курсы по современным ИИ-инструментам для специалистов без технического образования. <a class=\"text-link\" data-pdf href=\"AI_Course_Sergei_Antonov.pdf\" target=\"_blank\" rel=\"noopener\">Программа курса (PDF, на английском)</a>", "k54": "Сертификаты, образование и языки.", "k55": "Английский — C1 · русский — родной", "k56": "Языки", "k57": "Санкт-Петербургский политехнический университет Петра Великого", "k58": "Магистр, управление инновационными проектами, 2007 · Инженер, программное обеспечение вычислительной техники и автоматизированных систем, 2013", "k59": "Давайте обсудим.", "k60": "Рассматриваю позиции Delivery Director / Head of Delivery и консультационные проекты — удалённо или с переездом.", "k61": "Скачать резюме", "k62": "© 2026 Sergei Antonov · Санкт-Петербург"};
+  var UI = {
+    en: { toDark: "Switch to dark theme", toLight: "Switch to light theme", themeTitle: "Switch theme", copy: "Copy email", copied: "Copied", press: "Press Ctrl+C" },
+    ru: { toDark: "Включить тёмную тему", toLight: "Включить светлую тему", themeTitle: "Сменить тему", copy: "Скопировать адрес", copied: "Скопировано", press: "Нажмите Ctrl+C" }
+  };
+  var lang = "en";
+  function ui(k) { return UI[lang][k]; }
+  var i18nEls = [].slice.call(document.querySelectorAll("[data-i18n]"));
+  i18nEls.forEach(function (el) { el._en = el.innerHTML; });
+  function setLang(l, save) {
+    lang = l === "ru" ? "ru" : "en";
+    i18nEls.forEach(function (el) { el.innerHTML = lang === "ru" ? RU[el.getAttribute("data-i18n")] : el._en; });
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-lang]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-lang") === lang)); });
+    var cb = document.getElementById("copy-email"); if (cb) cb.textContent = ui("copy");
+    var tb = document.getElementById("theme-toggle");
+    if (tb) { var dark = document.documentElement.getAttribute("data-theme") === "dark" || (!document.documentElement.getAttribute("data-theme") && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches); tb.setAttribute("aria-label", dark ? ui("toLight") : ui("toDark")); tb.setAttribute("title", ui("themeTitle")); }
+    if (save) { try { localStorage.setItem("lang", lang); } catch (e) {} }
+  }
+  document.querySelectorAll("[data-lang]").forEach(function (b) { b.addEventListener("click", function () { setLang(b.getAttribute("data-lang"), true); }); });
+
   // PDFs next to the page: CV and course programme. Inside the Claude viewer, offer them via the downloads capability; on a normal server, the plain link works.
-  document.querySelectorAll("#cv-download, [data-pdf]").forEach(function (link) {
-    link.addEventListener("click", function (e) {
-      if (!(window.claude && window.claude.use)) return;
-      e.preventDefault();
-      var file = link.getAttribute("href");
-      var fallback = function () { window.open(file, "_blank", "noopener"); };
-      window.claude.use("downloads").then(function (dl) {
-        if (!dl) return fallback();
-        return fetch(file).then(function (r) { return r.blob(); }).then(function (b) {
-          return dl.save({ filename: file, data: b });
-        }).catch(function (err) { if (!err || err.code !== "declined") fallback(); });
-      }, fallback);
-    });
+  document.addEventListener("click", function (e) {
+    var link = e.target.closest ? e.target.closest("#cv-download, [data-pdf]") : null;
+    if (!link) return;
+    if (!(window.claude && window.claude.use)) return;
+    e.preventDefault();
+    var file = link.getAttribute("href");
+    var fallback = function () { window.open(file, "_blank", "noopener"); };
+    window.claude.use("downloads").then(function (dl) {
+      if (!dl) return fallback();
+      return fetch(file).then(function (r) { return r.blob(); }).then(function (b) {
+        return dl.save({ filename: file, data: b });
+      }).catch(function (err) { if (!err || err.code !== "declined") fallback(); });
+    }, fallback);
   });
 
   // Theme toggle: follows the system theme until the visitor picks one
@@ -410,7 +440,7 @@ window.SITE_LINKS = {
     function current() { return root.getAttribute("data-theme") || (mq && mq.matches ? "dark" : "light"); }
     function apply(t) {
       root.setAttribute("data-theme", t);
-      tbtn.setAttribute("aria-label", t === "dark" ? "Switch to light theme" : "Switch to dark theme");
+      tbtn.setAttribute("aria-label", t === "dark" ? ui("toLight") : ui("toDark")); tbtn.setAttribute("title", ui("themeTitle"));
     }
     apply(saved === "dark" || saved === "light" ? saved : current());
     tbtn.addEventListener("click", function () {
@@ -428,11 +458,14 @@ window.SITE_LINKS = {
   }
   btn.addEventListener("click", function () {
     var text = email.textContent.trim();
-    var done = function () { btn.textContent = "Copied"; setTimeout(function () { btn.textContent = "Copy email"; }, 1800); };
+    var done = function () { btn.textContent = ui("copied"); setTimeout(function () { btn.textContent = ui("copy"); }, 1800); };
     try {
-      navigator.clipboard.writeText(text).then(done, function () { selectEmail(); btn.textContent = "Press Ctrl+C"; });
-    } catch (e) { selectEmail(); btn.textContent = "Press Ctrl+C"; }
+      navigator.clipboard.writeText(text).then(done, function () { selectEmail(); btn.textContent = ui("press"); });
+    } catch (e) { selectEmail(); btn.textContent = ui("press"); }
   });
+  var savedLang = null;
+  try { savedLang = localStorage.getItem("lang"); } catch (e) {}
+  if (savedLang === "ru") setLang("ru", false);
 })();
 </script>
 
