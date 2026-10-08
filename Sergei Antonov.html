@@ -1,0 +1,403 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Sergei Antonov</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap">
+<style>
+/* Svodka design system. Layout: 1280px container, light-first, dense rhythm, blocks separated by hairlines instead of cards, one typeface. */
+:root {
+  --bg: #FFFFFF; --surface: #F4F4F2; --surface-2: #E9E9E6;
+  --line: #E2E2DF; --line-strong: #8A8A8A;
+  --ink: #111111; --ink-muted: #5F5F5F;
+  --topline: #141414; --on-topline: #FFFFFF; --on-topline-muted: #B5B5B5;
+  --accent: #00696B; --accent-soft: #E0F2F2;
+  --focus-ring: 0 0 0 2px #FFFFFF, 0 0 0 4px #00696B;
+  --font-sans: "Golos Text", "Helvetica Neue", Arial, sans-serif;
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-6: 24px; --space-8: 32px; --space-12: 48px;
+  --radius-xs: 2px; --radius-sm: 4px; --radius-md: 8px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #121212; --surface: #1C1C1C; --surface-2: #272727;
+    --line: #323232; --line-strong: #707070;
+    --ink: #F2F2F2; --ink-muted: #A8A8A8;
+    --topline: #000000;
+    --accent: #3CC3C6; --accent-soft: #0F2E2F;
+    --focus-ring: 0 0 0 2px #121212, 0 0 0 4px #3CC3C6;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #121212; --surface: #1C1C1C; --surface-2: #272727;
+  --line: #323232; --line-strong: #707070;
+  --ink: #F2F2F2; --ink-muted: #A8A8A8;
+  --topline: #000000;
+  --accent: #3CC3C6; --accent-soft: #0F2E2F;
+  --focus-ring: 0 0 0 2px #121212, 0 0 0 4px #3CC3C6;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-sans); font-size: 16px; line-height: 24px; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid transparent; box-shadow: var(--focus-ring); border-radius: var(--radius-xs); }
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+p { margin: 0; }
+.wrap { max-width: 1280px; margin-inline: auto; padding-inline: clamp(16px, 3vw, 24px); }
+
+/* TopLine */
+.topline { background: var(--topline); }
+.topline .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); height: 36px; overflow: hidden; }
+.topline span, .topline a { font-size: 13px; line-height: 18px; color: var(--on-topline-muted); white-space: nowrap; text-decoration: none; }
+.topline a:hover { color: var(--on-topline); }
+.topline-end { display: flex; gap: var(--space-4); flex: none; }
+@media (max-width: 560px) { .topline .status { display: none; } }
+
+/* RubricNav */
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); border-bottom: 1px solid var(--line); }
+.nav .wrap { display: flex; align-items: center; gap: var(--space-6); height: 56px; }
+.brand { font-weight: 700; font-size: 22px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); white-space: nowrap; flex: none; }
+.nav ul { display: flex; gap: var(--space-4); list-style: none; margin: 0; padding: 0; overflow-x: auto; }
+.nav ul a { display: block; font-size: 15px; font-weight: 500; line-height: 52px; color: var(--ink); text-decoration: none; border-bottom: 3px solid transparent; white-space: nowrap; }
+.nav ul a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+@media (max-width: 760px) { .nav ul { display: none; } }
+
+/* Sections */
+section { padding-block: var(--space-12); border-top: 1px solid var(--line); }
+.hero { border-top: 0; }
+.section-head { margin-bottom: var(--space-6); }
+h2 { font-size: 32px; line-height: 40px; font-weight: 700; }
+h3 { font-size: 20px; line-height: 26px; font-weight: 600; }
+.section-lead { margin-top: var(--space-2); font-size: 18px; line-height: 26px; color: var(--ink-muted); max-width: 64ch; }
+
+/* Buttons */
+.btn { font: inherit; font-size: 15px; font-weight: 500; display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); height: 40px; padding: 0 var(--space-4); border-radius: var(--radius-sm); border: 1px solid var(--line-strong); background: var(--bg); color: var(--ink); cursor: pointer; text-decoration: none; white-space: nowrap; }
+.btn:hover { border-color: var(--ink); }
+.btn-primary { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.btn-primary:hover { background: var(--ink-muted); border-color: var(--ink-muted); }
+
+/* Hero */
+.hero { padding-block: var(--space-12); }
+.hero h1 { font-size: clamp(30px, 4.6vw, 48px); line-height: 1.15; font-weight: 700; letter-spacing: -0.01em; max-width: 22ch; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero-sub { margin-top: var(--space-4); font-size: 18px; line-height: 26px; color: var(--ink-muted); max-width: 56ch; }
+.actions { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-6); }
+
+.metrics { margin-top: var(--space-8); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); background: var(--surface); border-radius: var(--radius-md); }
+.metric { padding: var(--space-4) var(--space-6); display: grid; gap: var(--space-1); align-content: start; min-width: 0; }
+.metric + .metric { border-left: 1px solid var(--line); }
+.metric b { font-size: 36px; line-height: 42px; font-weight: 700; letter-spacing: -0.01em; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.metric b small { font-size: 13px; font-weight: 500; letter-spacing: 0; color: var(--ink-muted); margin-right: 6px; vertical-align: 6px; }
+.metric span { font-size: 13px; line-height: 18px; color: var(--ink-muted); }
+@media (max-width: 860px) {
+  .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .metric:nth-child(3) { border-left: 0; }
+  .metric:nth-child(n+3) { border-top: 1px solid var(--line); }
+}
+@media (max-width: 420px) { .metric { padding: var(--space-3) var(--space-4); } .metric b { font-size: 28px; line-height: 34px; } }
+
+/* About */
+.about-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: var(--space-6); }
+.about-text { display: grid; gap: var(--space-4); font-size: 18px; line-height: 28px; max-width: 66ch; }
+.domains { display: flex; flex-wrap: wrap; gap: var(--space-2); padding: 0; margin: 0; list-style: none; }
+.domains li { font-size: 14px; line-height: 20px; padding: var(--space-1) var(--space-3); border-radius: var(--radius-sm); border: 1px solid var(--line); }
+@media (max-width: 760px) { .about-grid { grid-template-columns: minmax(0, 1fr); gap: 0; } }
+
+/* What I do: items divided by lines, 3 across then 2 rows of 2 */
+.cards { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0 var(--space-6); }
+.card { grid-column: span 2; padding-block: var(--space-4) var(--space-6); border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: var(--space-2); min-width: 0; }
+.card:nth-child(n+4) { grid-column: span 3; }
+.card:nth-child(-n+3) { border-top: 2px solid var(--ink); }
+.card p { font-size: 15px; line-height: 22px; color: var(--ink-muted); }
+@media (max-width: 960px) {
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .card, .card:nth-child(n+4) { grid-column: span 1; }
+  .card:nth-child(3) { border-top: 1px solid var(--line); }
+  .card:last-child { grid-column: 1 / -1; }
+}
+@media (max-width: 600px) { .cards { grid-template-columns: minmax(0, 1fr); } .card:last-child { grid-column: auto; } .card:nth-child(2) { border-top: 1px solid var(--line); } }
+
+/* Experience: feed rows, dates first */
+.timeline { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+.job { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: var(--space-1) var(--space-6); padding-block: var(--space-4); border-bottom: 1px solid var(--line); }
+.years { font-size: 13px; line-height: 26px; color: var(--ink-muted); font-variant-numeric: tabular-nums; }
+.job-head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-1) var(--space-3); margin-bottom: var(--space-1); }
+.job-head .role { font-size: 13px; line-height: 20px; font-weight: 600; padding: 0 6px; border-radius: var(--radius-xs); background: var(--accent-soft); color: var(--accent); }
+.job p { font-size: 16px; line-height: 24px; color: var(--ink-muted); max-width: 76ch; }
+.job p strong { color: var(--ink); font-weight: 600; }
+.earlier { margin-top: var(--space-4); font-size: 13px; line-height: 18px; color: var(--ink-muted); }
+@media (max-width: 640px) { .job { grid-template-columns: minmax(0, 1fr); } }
+
+/* Teaching */
+.list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0 var(--space-6); }
+.list li { display: flex; flex-direction: column; gap: var(--space-1); padding-block: var(--space-4); border-top: 2px solid var(--ink); min-width: 0; }
+.list p { font-size: 15px; line-height: 22px; color: var(--ink-muted); }
+.list-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 760px) { .list-3 { grid-template-columns: minmax(0, 1fr); } .list li + li { border-top-width: 1px; border-top-color: var(--line); } }
+
+/* Credentials */
+.creds { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 var(--space-6); border-top: 2px solid var(--ink); }
+.creds li { padding-block: var(--space-3); border-bottom: 1px solid var(--line); display: grid; gap: 2px; min-width: 0; }
+.creds li.edu { grid-column: 1 / -1; }
+.creds b { font-weight: 600; font-size: 16px; line-height: 22px; }
+.creds span { color: var(--ink-muted); font-size: 13px; line-height: 18px; }
+@media (max-width: 700px) { .creds { grid-template-columns: minmax(0, 1fr); } }
+
+/* Contact */
+.contact .panel { background: var(--surface); border-radius: var(--radius-md); padding: clamp(16px, 4vw, 32px); }
+.contact h2 { font-size: 36px; line-height: 42px; }
+.contact .lead { margin-top: var(--space-2); font-size: 18px; line-height: 26px; color: var(--ink-muted); max-width: 60ch; }
+.email-row { margin-top: var(--space-6); display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-4); }
+.email { font-size: clamp(18px, 3vw, 22px); font-weight: 600; user-select: all; overflow-wrap: anywhere; min-width: 0; }
+.copy-btn { font: inherit; font-size: 13px; font-weight: 500; height: 32px; padding: 0 var(--space-3); border-radius: var(--radius-sm); border: 1px solid var(--line-strong); background: var(--bg); color: var(--ink); cursor: pointer; }
+.copy-btn:hover { border-color: var(--ink); }
+.contact-links { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
+
+footer { padding-block: var(--space-6); border-top: 1px solid var(--line); font-size: 13px; line-height: 18px; color: var(--ink-muted); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-2); }
+</style>
+
+<!--
+  LINKS: fill these in to switch on the matching buttons.
+  Any link left empty stays hidden, so the page never shows a dead button.
+-->
+<script>
+window.SITE_LINKS = {
+  linkedin: "https://www.linkedin.com/in/sergei-antonov-fbls",
+  telegram: "https://t.me/santonov1",
+  cv: ""             // public link to your CV PDF (Google Drive, Dropbox, etc.)
+};
+</script>
+
+<div class="topline">
+  <div class="wrap">
+    <span class="status">Saint Petersburg · Open to Delivery Director roles</span>
+    <div class="topline-end">
+      <a href="https://www.linkedin.com/in/sergei-antonov-fbls" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://t.me/santonov1" target="_blank" rel="noopener">Telegram</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</div>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top">Sergei Antonov</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#what">What I do</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#credentials">Credentials</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <h1>Complex projects, delivered — <em>through people, clarity and control.</em></h1>
+      <p class="hero-sub">Leading engineering teams, programmes and portfolios in product and custom software development companies.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#contact">Contact me</a>
+        <a class="btn" data-link="cv" href="#" target="_blank" rel="noopener" hidden>Download CV</a>
+      </div>
+
+      <div class="metrics" role="list">
+        <div class="metric" role="listitem"><b>18</b><span>years in IT delivery</span></div>
+        <div class="metric" role="listitem"><b>200</b><span>people in a delivery unit I led</span></div>
+        <div class="metric" role="listitem"><b><small>up to</small>$10M</b><span>contract portfolio</span></div>
+        <div class="metric" role="listitem"><b>23→40%</b><span>operating margin increase</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about-grid">
+      <div class="section-head">
+        <h2>About</h2>
+      </div>
+      <div class="about-text">
+        <p>I turn large, high-stakes IT programmes into predictable results. I agree the right outcome with the client up front, keep scope, budget and risk under control, and build teams that deliver.</p>
+        <p>I've worked in waterfall, Agile, SAFe and hybrid setups, and I bring hands-on AI expertise to make teams faster and decisions sharper.</p>
+        <ul class="domains" aria-label="Industries">
+          <li>Pharma</li><li>Logistics</li><li>Energy</li><li>Retail</li><li>Data centres</li><li>Mining &amp; metals</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="what">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>What I do</h2>
+        <p class="section-lead">The areas I own on every engagement, from people and budgets to engineering.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <h3>Leading people</h3>
+          <p>I build teams and grow leaders from within. I grew one account team from 40 to 80 people.</p>
+        </article>
+        <article class="card">
+          <h3>Planning &amp; delivery economics</h3>
+          <p>I own P&amp;L, utilisation, margin and cash flow. I set up cost and time tracking so the cost and timeline of every project are visible at any moment.</p>
+        </article>
+        <article class="card">
+          <h3>Scope, risk &amp; recovery</h3>
+          <p>Change control stops scope creep and protects budgets. I find bottlenecks through metrics and project health radars before they become crises.</p>
+        </article>
+        <article class="card">
+          <h3>Stakeholders &amp; negotiations</h3>
+          <p>I work directly with CEOs, founders and client executives. I negotiate contract terms that keep projects healthy: advances, milestones and acceptance criteria.</p>
+        </article>
+        <article class="card">
+          <h3>PMO &amp; delivery processes</h3>
+          <p>I've built Delivery Management Offices and delivery frameworks that scale, and I keep them pragmatic rather than dogmatic.</p>
+        </article>
+        <article class="card">
+          <h3>Engineering excellence</h3>
+          <p>I set up the engineering system behind delivery: SDLC, CI/CD, code quality standards, test automation and DevSecOps practices. Monitoring, resilient infrastructure and metrics like lead time and throughput keep releases frequent and systems reliable. I also run technical due diligence.</p>
+        </article>
+        <article class="card">
+          <h3>AI-enabled delivery</h3>
+          <p>I embed AI tools and agents into the development lifecycle, and I launched an AI initiative hub to test ideas quickly.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Experience</h2>
+        <p class="section-lead">Selected roles and the results behind them.</p>
+      </div>
+      <ol class="timeline">
+        <li class="job">
+          <div class="years">2025 — now</div>
+          <div>
+            <div class="job-head"><h3>KORUS Consulting</h3><span class="role">Project Portfolio Manager</span></div>
+            <p>Data platform portfolio for Russia's leading railway carrier: up to 150 people, contracts up to $10M. <strong>Delivered within budget at 20%+ margin</strong> and introduced portfolio-wide change control.</p>
+          </div>
+        </li>
+        <li class="job">
+          <div class="years">2024 — 2025</div>
+          <div>
+            <div class="job-head"><h3>ITentika</h3><span class="role">Delivery Director</span></div>
+            <p>Led a 200-person delivery unit across logistics, energy and retail as a member of the executive committee. <strong>Hit targets of 90% utilisation and 35% project margin.</strong></p>
+          </div>
+        </li>
+        <li class="job">
+          <div class="years">2021 — 2023</div>
+          <div>
+            <div class="job-head"><h3>Emergn</h3><span class="role">Head of Delivery Management Office</span></div>
+            <p>Led a 150-person Delivery Office. <strong>Raised margin from 23% to 40%</strong> through a new operating model built with the CFO and Sales Director. Managed the phased transition of teams to Portugal and LATAM in 2022.</p>
+          </div>
+        </li>
+        <li class="job">
+          <div class="years">2019 — 2021</div>
+          <div>
+            <div class="job-head"><h3>EPAM Systems</h3><span class="role">Principal Delivery Manager</span></div>
+            <p>Ran a 70-person account segment for Merck (US pharma). Delivered target margin consistently, and <strong>high client satisfaction led to expansion</strong> into adjacent Merck units.</p>
+          </div>
+        </li>
+        <li class="job">
+          <div class="years">2017 — 2018</div>
+          <div>
+            <div class="job-head"><h3>Teamlead</h3><span class="role">Head of Consulting (Partner)</span></div>
+            <p>Built and led a 15-person Atlassian consulting practice from scratch. <strong>Won and delivered contracts with Deloitte CIS and United Card Services, opened X5 Retail Group as a new client, and grew licence sales to take the company to Atlassian Gold Partner status.</strong></p>
+          </div>
+        </li>
+        <li class="job">
+          <div class="years">2015 — 2017</div>
+          <div>
+            <div class="job-head"><h3>EPAM Systems</h3><span class="role">Software Project Manager</span></div>
+            <p>Delivered projects for Merck and Biogen. An ML drug-discovery platform I worked on <strong>won a Silver Edison Award (2017).</strong></p>
+          </div>
+        </li>
+      </ol>
+      <p class="earlier">Earlier: retail POS and enterprise BPM projects at Crystal Service Integration and Ittilan (2013–2015).</p>
+    </div>
+  </section>
+
+  <section id="teaching">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Teaching &amp; mentoring</h2>
+        <p class="section-lead">Sharing what I've learned with students and early-stage founders.</p>
+      </div>
+      <ul class="list list-3">
+        <li><h3>Guest lecturer, ETU "LETI"</h3><p>Project management for engineering students.</p></li>
+        <li><h3>Tracker, student startup accelerator</h3><p>Mentoring early-stage founders on planning, focus and execution.</p></li>
+        <li><h3>Course author</h3><p>Practical courses on modern AI tools for non-technical professionals.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="credentials">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Credentials</h2>
+        <p class="section-lead">Certifications, education and languages.</p>
+      </div>
+      <ul class="creds">
+        <li><b>PMP®</b><span>Project Management Professional, PMI</span></li>
+        <li><b>Leading SAFe® &amp; SAFe Practitioner</b><span>Scaled Agile Framework</span></li>
+        <li><b>Generative AI with Large Language Models</b><span>DeepLearning.AI &amp; AWS, 2026</span></li>
+        <li><b>English C1 · Russian native</b><span>Languages</span></li>
+        <li class="edu"><b>Peter the Great St. Petersburg Polytechnic University</b><span>M.Eng., Innovation Project Management, 2007 · Engineer's degree, Computer Science &amp; Automated Systems Software, 2013</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap"><div class="panel">
+      <h2>Let's talk.</h2>
+      <p class="lead">Open to Delivery Director / Head of Delivery roles and advisory projects, remote or with relocation.</p>
+      <div class="email-row">
+        <span class="email" id="email">antonoff.box@gmail.com</span>
+        <button class="copy-btn" id="copy-email" type="button">Copy email</button>
+      </div>
+      <div class="contact-links">
+        <a class="btn" data-link="linkedin" href="#" target="_blank" rel="noopener" hidden>LinkedIn</a>
+        <a class="btn" data-link="telegram" href="#" target="_blank" rel="noopener" hidden>Telegram</a>
+        <a class="btn" data-link="cv" href="#" target="_blank" rel="noopener" hidden>Download CV</a>
+      </div>
+    </div></div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Sergei Antonov</span>
+    <span>Saint Petersburg</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var links = window.SITE_LINKS || {};
+  document.querySelectorAll("[data-link]").forEach(function (el) {
+    var url = links[el.getAttribute("data-link")];
+    if (url) { el.href = url; el.hidden = false; }
+  });
+
+  var btn = document.getElementById("copy-email");
+  var email = document.getElementById("email");
+  function selectEmail() {
+    var r = document.createRange(); r.selectNodeContents(email);
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+  }
+  btn.addEventListener("click", function () {
+    var text = email.textContent.trim();
+    var done = function () { btn.textContent = "Copied"; setTimeout(function () { btn.textContent = "Copy email"; }, 1800); };
+    try {
+      navigator.clipboard.writeText(text).then(done, function () { selectEmail(); btn.textContent = "Press Ctrl+C"; });
+    } catch (e) { selectEmail(); btn.textContent = "Press Ctrl+C"; }
+  });
+})();
+</script>
+
+</body></html>
